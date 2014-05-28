@@ -28,8 +28,14 @@ Everything automatically
 
 
 How to install and use:
+*** ALWAYS BACKUP FILES AND DATABASE BEFORE INSTALLING ANYTHING ***
 1) Download the files. 
 2) Create the directory "whmcs2billysbilling" in: WHMCS-DIR/modules/addons/
 3) Upload the files to your WHMCS installation in following directory: WHMCS-DIR/modules/addons/whmcs2billysbilling/
 4) Login as Admin in WHMCS
+5) Goto: Setup -> Addon Modules (/admin/configaddonmods.php)
 
+** NOTE **  You will get errors just by uploading the files, it is highly important to configure the addon asap.
+
+6) Find the addon "Whmcs to BillysBilling" and activate it. If you get a white page with a lot of errors on it, then just navigate to the url /admin/configaddonmods.php again. 
+7) Now click configure on the addon. 
