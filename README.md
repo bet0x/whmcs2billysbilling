@@ -1,10 +1,33 @@
 whmcs2billysbilling
 ===================
 
-whmcs2billysbilling
+
+ * Whmcs to BillysBilling Hooks
+ *
+ *
+ * @package    whmcs2billysbilling
+ * @author     Kim Vinberg <info@dicm.dk>
+ * @copyright  Copyright (c) Kim Vinberg 2014
+ * @license    http://dicm.dk/
+ * @version    1.0.0
+ * @link       http://dicm.dk/
+ * @github	https://github.com/dicm/whmcs2billysbilling
+ * Tested and workig on WHMCS 5.3.7
 
 
 v 1.0.0
-* Opretter selv nye brugere fra Whmcs inde i BillysBilling.
-* Henter contryCode fra Whmcs of omdanner til BillysBilling's country codes.
+* Saves new clients in BillysBilling when created in WHMCS.
+* Converts country codes from WHMCS to BillysBilling country codes for clients / invoices.
+* Transfers invoices from WHMCS to BillysBilling.
+* Creating products in BillysBilling when sending the invoice.
+* Updating invoice to "Paid" when WHMCS status changes.
+
+Everything automatically
+
+
+How to install and use:
+1) Download the files. 
+2) Create the directory "whmcs2billysbilling" in: WHMCS-DIR/modules/addons/
+3) Upload the files to your WHMCS installation in following directory: WHMCS-DIR/modules/addons/whmcs2billysbilling/
+4) Login as Admin in WHMCS
 
