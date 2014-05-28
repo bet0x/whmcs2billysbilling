@@ -41,13 +41,7 @@ if (!function_exists("json_decode")) {
 /* Load the class for billysBilling */
 	require(dirname(__FILE__) . "/BillysBilling/v2class.php");
 
-	
-	
-
-/* Logging */
-	//require(dirname(__FILE__) . "/functions/saveLog.php");
-
-	
+		
 /* Save the new client postContact */
 	require(dirname(__FILE__) . "/functions/postContact.php");	
 	
@@ -56,35 +50,15 @@ if (!function_exists("json_decode")) {
 	require(dirname(__FILE__) . "/functions/convertCountryId.php");
 
 
-/* Get localeId */
-	//require(dirname(__FILE__) . "/functions/getLocaleId.php");
-
-	
-/* Get getContactId */
-	//require(dirname(__FILE__) . "/functions/getContactId.php");
-
-	
-/* Update client information in BillysBilling */
-	//require(dirname(__FILE__) . "/functions/updateClient.php");
-
-
 /* Save the invoice */
-	//require(dirname(__FILE__) . "/functions/postInvoice.php");
+	require(dirname(__FILE__) . "/functions/postInvoice.php");
 	
 
 /* Save product */
-	//require(dirname(__FILE__) . "/functions/postProduct.php");	
-	
-	
-/* get account id */
-	//require(dirname(__FILE__) . "/functions/getAccountId.php");	
-	
-	
-/* get account id */
-	//require(dirname(__FILE__) . "/functions/getVatModelId.php");	
+	require(dirname(__FILE__) . "/functions/postProduct.php");	
 
-
-/* get account id */
-	//require(dirname(__FILE__) . "/functions/getProductId.php");		
-
+/* Update invoice on InvoicePaid */
+	require(dirname(__FILE__) . "/functions/postInvoicePaid.php");
+	
+	
 ?>    
