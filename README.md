@@ -14,6 +14,8 @@ whmcs2billysbilling
  * @github	https://github.com/dicm/whmcs2billysbilling
  * Tested and workig on WHMCS 5.3.2, 5.3.3, 5.3.4, 5.3.5, 5.3.6 and 5.3.7
 
+Changelog:
+* 28-05-2014 : Went from dev version to stable release. Version: 1.0.0
 
 v 1.0.0
 * Saves new clients in BillysBilling when created in WHMCS.
