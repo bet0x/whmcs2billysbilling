@@ -12,7 +12,7 @@ whmcs2billysbilling
  * @version    1.0.0
  * @link       http://dicm.dk/
  * @github	https://github.com/dicm/whmcs2billysbilling
- * Tested and workig on WHMCS 5.3.7
+ * Tested and workig on WHMCS 5.3.2, 5.3.3, 5.3.4, 5.3.5, 5.3.6 and 5.3.7
 
 
 v 1.0.0
