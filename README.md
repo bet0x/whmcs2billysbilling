@@ -33,6 +33,8 @@ v 1.0.0
 Everything automatically
 
 
+
+
 How to install and use:
 *** ALWAYS BACKUP FILES AND DATABASE BEFORE INSTALLING ANYTHING ***
 1) Download the files. 
