@@ -15,9 +15,11 @@ whmcs2billysbilling
  * Tested and workig on WHMCS 5.3.2, 5.3.3, 5.3.4, 5.3.5, 5.3.6 and 5.3.7
 
 Changelog:
-
-** V 1.0.0 **
-* 28-05-2014 : Went from dev version to stable release.
+** 1.0.01 **
+* Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
+*
+** 1.0.0 **
+* Went from dev version to stable release.
 
 
 v 1.0.0
