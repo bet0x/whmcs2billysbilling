@@ -8,9 +8,9 @@ whmcs2billysbilling
  * @package    whmcs2billysbilling
  * @author     Kim Vinberg <info@dicm.dk>
  * @copyright  Copyright (c) Kim Vinberg 2014
- * @license    http://dicm.dk/
+ * @license    http://dicm.dk/billysbilling/
  * @version    1.0.0
- * @link       http://dicm.dk/
+ * @link       http://dicm.dk/billysbilling/
  * @github	https://github.com/dicm/whmcs2billysbilling
  * Tested and workig on WHMCS 5.3.2, 5.3.3, 5.3.4, 5.3.5, 5.3.6 and 5.3.7
 
