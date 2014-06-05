@@ -16,6 +16,8 @@ whmcs2billysbilling
 
 Changelog:
 ** 1.0.01 **
+* Updated Error codes output. Now showing file and line number with the error.
+* Added fallback to $defaultSalesAccountId and $defaultSalesTaxRulesetId if not found in Billysbilling it will use the ones set in WHMCS.
 * Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
 
 
