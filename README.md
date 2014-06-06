@@ -23,7 +23,8 @@ Changelog:
 
 Todo:
 * Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
-
+* When creating the invoice in BillysBilling, save it as invoice and not Draft.
+* 
 ** 1.0.0 **
 * Went from dev version to stable release.
 
