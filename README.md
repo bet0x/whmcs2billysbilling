@@ -21,10 +21,12 @@ Changelog:
 * Added 'cashExchangeRate' => '1', in invoicePaid to avoid errors with other currency. Exchangerate is always 1.
 * Removing VAT to invoies when sent to BillysBilling, if there is no VAT on the invoice in WHMCS.
 * Added file /functions/accountIdSplit.php - used to split the accountId from the name in fields from WHMCS
+* When creating the invoice in BillysBilling, save it as invoice and not Draft.
+* From line 91 to 96 in postInvoicePaid.php commented out.
 
 Todo:
 * Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
-* When creating the invoice in BillysBilling, save it as invoice and not Draft.
+* 
 * 
 ** 1.0.0 **
 * Went from dev version to stable release.
