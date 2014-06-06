@@ -15,7 +15,7 @@ whmcs2billysbilling
  * Tested and workig on WHMCS 5.3.2, 5.3.3, 5.3.4, 5.3.5, 5.3.6 and 5.3.7
 
 Changelog:
-** 1.0.01 **
+** 1.0.1 **
 * Updated Error codes output. Now showing file and line number with the error.
 * Added fallback to $defaultSalesAccountId and $defaultSalesTaxRulesetId if not found in Billysbilling it will use the ones set in WHMCS.
 * Added 'cashExchangeRate' => '1', in invoicePaid to avoid errors with other currency. Exchangerate is always 1.
