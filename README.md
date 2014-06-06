@@ -20,6 +20,7 @@ Changelog:
 * Added fallback to $defaultSalesAccountId and $defaultSalesTaxRulesetId if not found in Billysbilling it will use the ones set in WHMCS.
 * Added 'cashExchangeRate' => '1', in invoicePaid to avoid errors with other currency. Exchangerate is always 1.
 * Removing VAT to invoies when sent to BillysBilling, if there is no VAT on the invoice in WHMCS.
+* Added file /functions/accountIdSplit.php - used to split the accountId from the name in fields from WHMCS
 
 Todo:
 * Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
