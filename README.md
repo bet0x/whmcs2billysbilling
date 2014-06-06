@@ -19,8 +19,10 @@ Changelog:
 * Updated Error codes output. Now showing file and line number with the error.
 * Added fallback to $defaultSalesAccountId and $defaultSalesTaxRulesetId if not found in Billysbilling it will use the ones set in WHMCS.
 * Added 'cashExchangeRate' => '1', in invoicePaid to avoid errors with other currency. Exchangerate is always 1.
-* Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
+* Removing VAT to invoies when sent to BillysBilling, if there is no VAT on the invoice in WHMCS.
 
+Todo:
+* Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
 
 ** 1.0.0 **
 * Went from dev version to stable release.
@@ -36,7 +38,7 @@ v 1.0.0
 
 ** BUGS **
 This is a list of known bugs.
-* Adding VAT to invoies when sent to BillysBilling, even if there is now VAT on the invoice in WHMCS
+** NONE KNOWN AT THE MOMENT **
 
 
 
