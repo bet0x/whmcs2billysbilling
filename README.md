@@ -26,8 +26,8 @@ Changelog:
 
 Todo:
 * Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
-* 
-* 
+
+
 ** 1.0.0 **
 * Went from dev version to stable release.
 
