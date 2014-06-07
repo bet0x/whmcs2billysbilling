@@ -23,10 +23,11 @@ Changelog:
 * Added file /functions/accountIdSplit.php - used to split the accountId from the name in fields from WHMCS
 * When creating the invoice in BillysBilling, save it as invoice and not Draft.
 * From line 90 to 103 in postInvoicePaid.php commented out.
-
-Todo:
 * Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
 
+
+Todo:
+* Further testing
 
 ** 1.0.0 **
 * Went from dev version to stable release.
