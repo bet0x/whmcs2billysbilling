@@ -24,16 +24,16 @@ Changelog:
 * When creating the invoice in BillysBilling, save it as invoice and not Draft.
 * From line 90 to 103 in postInvoicePaid.php commented out.
 * Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
-
-
-Todo:
-* Further testing
+* Changed the automatic payment to account id part, added a prefix (whmcs-XXXX). Previouesly when account name was (example) paypal and the client used paypal to pay with, the addon would find that account and insert the payment into in BillysBilling, now it will search for whmcs-paypal, if no accou with that name is found it will use Default revenue account id
 
 ** 1.0.0 **
 * Went from dev version to stable release.
 
 
-v 1.0.0
+Todo:
+* Further testing
+
+What this does:
 * Saves new clients in BillysBilling when created in WHMCS.
 * Converts country codes from WHMCS to BillysBilling country codes for clients / invoices.
 * Transfers invoices from WHMCS to BillysBilling.
@@ -43,7 +43,7 @@ v 1.0.0
 
 ** BUGS **
 This is a list of known bugs.
-** NONE KNOWN AT THE MOMENT **
+* Some users have problems with the invoice using wrong product names. Unknown reason. 
 
 
 
