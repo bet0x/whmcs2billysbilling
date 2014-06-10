@@ -10,7 +10,7 @@ function billysbilling_hook_InvoiceCreated($vars)
     $command = 'getinvoice';
     $values = array('invoiceid' => $vars['invoiceid']);
     $results = localAPI($command, $values, $adminuser);
-    $currencyId = "" . $whmcs2billysbilling_settings['option97'] . "";
+    $currencyId = "" . accountIdSplit($whmcs2billysbilling_settings['option97']) . "";
     
     if ($results['result'] == "success") {
         
@@ -20,7 +20,7 @@ function billysbilling_hook_InvoiceCreated($vars)
         //Get organizationId
         $res = $client->request("GET", "/organization");
         if ($res->status !== 200) {
-            echo "Something went wrong:\n\n";
+            echo "postInvoice 23 : Something went wrong:\n\n";
             print_r($res->body);
             exit;
         }
@@ -29,6 +29,17 @@ function billysbilling_hook_InvoiceCreated($vars)
         $defaultSalesAccountId = $res->body->organization->defaultSalesAccountId;
         $defaultSalesTaxRulesetId = $res->body->organization->defaultSalesTaxRulesetId;
         
+//If no default accountId is set in BillysBilling, then we use the one set in option96 and the same for tex rules set.
+if($defaultSalesAccountId == '') { 
+$defaultSalesAccountId = accountIdSplit($whmcs2billysbilling_settings['option96']);
+} 
+
+if($defaultSalesTaxRulesetId == '') { 
+$defaultSalesTaxRulesetId = accountIdSplit($whmcs2billysbilling_settings['option98']);
+} 
+
+
+		
         
         $command_client = "getclientsdetails";
         $values_client['clientid'] = $results['userid'];
@@ -77,8 +88,10 @@ function billysbilling_hook_InvoiceCreated($vars)
                     
                     $productamount = $productamount;
                     $accountId = $defaultSalesAccountId;
-                    $vatModelId = $defaultSalesTaxRulesetId;
-                    // GET momsfrit fra DB
+                     
+                    $vatModelId = accountIdSplit($whmcs2billysbilling_settings['option97']); //$vatModelId = $defaultSalesTaxRulesetId;
+					
+					// GET momsfrit fra DB
                     
                     
                 }
@@ -111,7 +124,7 @@ function billysbilling_hook_InvoiceCreated($vars)
             'type' => 'invoice',
             'contactId' => $contactId,
             'entryDate' => date("Y-m-d"),
-            'state' => 'draft',
+            'state' => 'approved', //Changed from draft to approved in v1.0.1
             'sentState' => 'unsent',
             'invoiceNo' => $vars['invoiceid'],
             'currencyId' => $results_client['client']['currency_code'],
@@ -120,7 +133,7 @@ function billysbilling_hook_InvoiceCreated($vars)
             ));
             
             if ($res->status !== 200) {
-                echo "Something went wrong:\n\n";
+                echo "postInvoice 123 : Something went wrong:\n\n";
                 print_r($res->body);
                 exit;
             }

@@ -55,7 +55,7 @@ function getAccounts($showName = 0)
         if ($showName == 1) {
             $output .= "".$values->id." = ".$values->name."";
         } else {
-            $output .= "".$values->id."";
+            $output .= "".$values->id." (".$values->name.")"; // $output .= "".$values->id."";
         }
         
         if ($count != $i) {
@@ -98,7 +98,7 @@ function getSalesTaxRuleset($showName = 0)
         if ($showName == 1) {
             $output .= "".$values->id." = ".$values->name."";
         } else {
-            $output .= "".$values->id."";
+           $output .= "".$values->id." (".$values->name.")"; // $output .= "".$values->id."";
         }
         
         if ($count != $i) {
@@ -119,14 +119,14 @@ function whmcs2billysbilling_config()
     "author" => "Kim Vinberg - info@dicm.dk",
     "language" => "english",
     "fields" => array("option95" => array("FriendlyName" => "Default payment account id", "Type" => "dropdown", "Options" => getAccounts(),"", "Description" => "Normally 'Bank'", "Default" => "0", ),
-    "option95a" => array("FriendlyName" => "Explanation of default payment account id", "Type" => "dropdown", "Options" => getAccounts(1),"", "Description" => "", "Default" => "0", ),
+   // "option95a" => array("FriendlyName" => "Explanation of default payment account id", "Type" => "dropdown", "Options" => getAccounts(1),"", "Description" => "", "Default" => "0", ),
     "blank0" => array("FriendlyName" => "", "Type" => "none", "", "Description" => "", "Default" => "0", ),
     "option96" => array("FriendlyName" => "Default revenue account id", "Type" => "dropdown", "Options" => getAccounts(),"", "Description" => "Normally 'Sales'", "Default" => "0", ),
-    "option96a" => array("FriendlyName" => "Explanation of default revenue account id", "Type" => "dropdown", "Options" => getAccounts(1),"", "Description" => "", "Default" => "0", ),
+  //  "option96a" => array("FriendlyName" => "Explanation of default revenue account id", "Type" => "dropdown", "Options" => getAccounts(1),"", "Description" => "", "Default" => "0", ),
     "blank" => array("FriendlyName" => "", "Type" => "none", "", "Description" => "", "Default" => "0", ),
     "option97" => array("FriendlyName" => "Select salesNoTaxRule", "Type" => "dropdown", "Options" => getSalesTaxRuleset(),"", "Description" => "Select salesNoTaxRule", "Default" => "0", ),
     "option98" => array("FriendlyName" => "Select default salesTaxRule", "Type" => "dropdown", "Options" => getSalesTaxRuleset(),"", "Description" => "Select salesTaxRule", "Default" => "0", ),
-    "option98a" => array("FriendlyName" => "Explanation of tax rules", "Type" => "dropdown", "Options" => getSalesTaxRuleset(1),"", "Description" => "", "Default" => "0", ),
+   // "option98a" => array("FriendlyName" => "Explanation of tax rules", "Type" => "dropdown", "Options" => getSalesTaxRuleset(1),"", "Description" => "", "Default" => "0", ),
     "blank1" => array("FriendlyName" => "", "Type" => "none", "", "Description" => "", "Default" => "0", ),
     "option99" => array("FriendlyName" => "BillysBilling API key", "Type" => "text", "Size" => "50", "Description" => "", "Default" => ""),
     "option100" => array("FriendlyName" => "WHMCS admin username", "Type" => "text", "Size" => "50", "Description" => "Requires full access", "Default" => "")

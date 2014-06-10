@@ -62,7 +62,7 @@ function whmcs2billysbilling_hook_ClientAdd($vars)
     //Get organizationId
     $res = $client->request("GET", "/organization");
     if ($res->status !== 200) {
-        echo "Something went wrong:\n\n";
+        echo "postContact 65 : Something went wrong:\n\n";
         print_r($res->body);
         exit;
     }
@@ -76,7 +76,7 @@ function whmcs2billysbilling_hook_ClientAdd($vars)
     //V2 query on $userid and name, to avoid dublicates, cant post e-mail adresse to BB and always have 1 or 0 results.
     
     if ($res->status !== 200) {
-        echo "Something went wrong:\n\n";
+        echo "postContact 79 : Something went wrong:\n\n";
         print_r($res->body);
         //exit;
     }
@@ -96,7 +96,7 @@ function whmcs2billysbilling_hook_ClientAdd($vars)
         ));
         
         if ($res->status !== 200) {
-            echo "Something went wrong:\n\n";
+            echo "postContact 99 : Something went wrong:\n\n";
             print_r($res->body);
             //exit;
         }

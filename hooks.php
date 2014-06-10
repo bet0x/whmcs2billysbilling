@@ -41,6 +41,8 @@ if (!function_exists("json_decode")) {
 /* Load the class for billysBilling */
 	require(dirname(__FILE__) . "/BillysBilling/v2class.php");
 
+	/* Save the new client postContact */
+	require(dirname(__FILE__) . "/functions/accountIdSplit.php");	
 		
 /* Save the new client postContact */
 	require(dirname(__FILE__) . "/functions/postContact.php");	

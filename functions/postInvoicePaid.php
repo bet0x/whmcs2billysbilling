@@ -12,7 +12,7 @@ function billysbilling_hook_getAccountId($accountName)
     $res = $client->request("GET", "/accounts?q=$accountName");
     
     if ($res->status !== 200) {
-        echo "Something went wrong:\n\n";
+        echo "postInvoicePaid 15 : Something went wrong:\n\n";
         print_r($res->body);
         exit;
     }
@@ -20,7 +20,7 @@ function billysbilling_hook_getAccountId($accountName)
     $accountCount = count($res->body->accounts);
     //If 1 , then it exists and we use the data from it - if 0, we need to create it first.
     
-    $accountId = $whmcs2billysbilling_settings['option95'];
+    $accountId = accountIdSplit($whmcs2billysbilling_settings['option95']);
     
     if ($accountCount == 1) {
         
@@ -61,7 +61,7 @@ function billysbilling_hook_InvoicePaid($vars)
     //Get organizationId
     $res = $client->request("GET", "/organization");
     if ($res->status !== 200) {
-        echo "Something went wrong:\n\n";
+        echo "postInvoicePaid 64 : Something went wrong:\n\n";
         print_r($res->body);
         exit;
     }
@@ -73,7 +73,7 @@ function billysbilling_hook_InvoicePaid($vars)
     $res = $client->request("GET", "/invoices?q=".$vars['invoiceid']."");
     
     if ($res->status !== 200) {
-        echo "Something went wrong:\n\n";
+        echo "postInvoicePaid 76 : Something went wrong:\n\n";
         print_r($res->body);
         exit;
     }
@@ -86,26 +86,30 @@ function billysbilling_hook_InvoicePaid($vars)
     if ($invoiceCount == 1) {
         
         $invoiceId = $res->body->invoices[0]->id;
-        
+       
+/*	   
         //Update invoice state to Approved and then pay it.
         $res = $client->request("PUT", "/invoices/$invoiceId", array('invoice' => array('state' => 'approved'
         )
         )
         );
-        
+ 
+  
         if ($res->status !== 200) {
-            echo "Something went wrong:\n\n";
+            echo "postInvoicePaid 97 : Something went wrong:\n\n";
             print_r($res->body);
             exit;
         }
-        
+   */
+   
         $associations[] = array("subjectReference" => "invoice:$invoiceId");
         
         $res = $client->request("POST", "/bankPayments", array('bankPayment' => array('organizationId' => $organizationId,
         'entryDate' => date("Y-m-d"),
         'cashAmount' => $results['total'],
         'cashSide' => 'debit',
-        'cashAccountId' => billysbilling_hook_getAccountId($gateway),
+        'cashAccountId' => billysbilling_hook_getAccountId("whmcs-".$gateway),
+		'cashExchangeRate' => '1', //Set exchangerate to 1 all the time. Can't know what rate is used.
         'associations' => $associations
         )
         ));
@@ -114,7 +118,7 @@ function billysbilling_hook_InvoicePaid($vars)
         
         
         if ($res->status !== 200) {
-            echo "Something went wrong:\n\n";
+            echo "postInvoicePaid 117 : Something went wrong:\n\n";
             print_r($res->body);
             exit;
         }
