@@ -14,6 +14,18 @@ whmcs2billysbilling
  * @github	https://github.com/dicm/whmcs2billysbilling
  * Tested and workig on WHMCS 5.3.2, 5.3.3, 5.3.4, 5.3.5, 5.3.6 and 5.3.7
 
+Changelog:
+** 1.0.1 **
+* Updated Error codes output. Now showing file and line number with the error.
+* Added fallback to $defaultSalesAccountId and $defaultSalesTaxRulesetId if not found in Billysbilling it will use the ones set in WHMCS.
+* Added 'cashExchangeRate' => '1', in invoicePaid to avoid errors with other currency. Exchangerate is always 1.
+* Removing VAT to invoies when sent to BillysBilling, if there is no VAT on the invoice in WHMCS.
+* Added file /functions/accountIdSplit.php - used to split the accountId from the name in fields from WHMCS
+* When creating the invoice in BillysBilling, save it as invoice and not Draft.
+* From line 90 to 103 in postInvoicePaid.php commented out.
+* Removed explanation fields and updated backend code to handle this [Suggestion of BillysBilling].
+* Changed the automatic payment to account id part, added a prefix (whmcs-XXXX). Previouesly when account name was (example) paypal and the client used paypal to pay with, the addon would find that account and insert the payment into in BillysBilling, now it will search for whmcs-paypal, if no accou with that name is found it will use Default revenue account id
+
 ** 1.0.0 **
 * Went from dev version to stable release.
 
