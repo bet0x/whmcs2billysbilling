@@ -94,8 +94,8 @@ When done, save and you have now a working addon.
 
 ** EXTRA : HIGHLY IMPORTANT **
 
-When a payment come from exmaple Paypal, you maybe not want it to send the money to the "Default payment account id" in BillysBilling, to prevent this. Create a bank account in BillysBilling with the exact same name WHMCS uses. 
-Most of the time Paypal uses the name "Paypal" in WHMCS and you should call the bank account "Paypal" in billysBilling. If you call it the same, "Whmcs to BillysBilling" will find the account and use it instead of the "Default payment account id".
+When a payment come from exmaple Paypal, you maybe not want it to send the money to the "Default payment account id" in BillysBilling, to prevent this. Create a bank account in BillysBilling with the same name WHMCS uses and a prefix of whmcs- (example: whmcs-paypal). 
+Most of the time Paypal uses the name "Paypal" in WHMCS and you should call the bank account "whmcs-paypal" in billysBilling. If you call it this, "Whmcs to BillysBilling" will find the account and use it instead of the "Default payment account id".
 
 All done.
 
