@@ -55,7 +55,7 @@ function getAccounts($showName = 0)
         if ($showName == 1) {
             $output .= "".$values->id." = ".$values->name."";
         } else {
-            $output .= "".$values->id." (".$values->name.")"; // $output .= "".$values->id."";
+            $output .= "".$values->name." (".$values->id.")"; // $output .= "".$values->id."";
         }
         
         if ($count != $i) {
@@ -98,7 +98,7 @@ function getSalesTaxRuleset($showName = 0)
         if ($showName == 1) {
             $output .= "".$values->id." = ".$values->name."";
         } else {
-           $output .= "".$values->id." (".$values->name.")"; // $output .= "".$values->id."";
+           $output .= "".$values->name." (".$values->id.")"; // $output .= "".$values->id."";
         }
         
         if ($count != $i) {
