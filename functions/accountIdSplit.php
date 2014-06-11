@@ -1,9 +1,9 @@
 <?php
 function accountIdSplit($data) {
 
-$rawData = explode(" (", $data, 2);
+$rawData = explode(" (", $data, 2); 
 
-$data = $rawData['0'];
+$data = str_repalce(")", "", $rawData['1']);
 
 return $data;
 }
