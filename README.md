@@ -18,6 +18,8 @@ Changelog:
 ** 1.0.2 **
 * Fixed bug with accounts not displaying correctly when a comma is present in name.
 * Changes the function accountIdSplit() to avoid errors if users have ( in account names.
+* Removed cashExchangeRate from postInvoicepaid.php , use accounts with correct currency.
+*
 
 ** 1.0.1 **
 * Updated Error codes output. Now showing file and line number with the error.
