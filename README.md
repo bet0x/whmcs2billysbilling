@@ -15,6 +15,10 @@ whmcs2billysbilling
  * Tested and workig on WHMCS 5.3.2, 5.3.3, 5.3.4, 5.3.5, 5.3.6 and 5.3.7
 
 Changelog:
+** 1.0.2 **
+* Fixed bug with accounts not displaying correctly when a comma is present in name.
+* Changes the function accountIdSplit() to avoid errors if users have ( in account names.
+
 ** 1.0.1 **
 * Updated Error codes output. Now showing file and line number with the error.
 * Added fallback to $defaultSalesAccountId and $defaultSalesTaxRulesetId if not found in Billysbilling it will use the ones set in WHMCS.
