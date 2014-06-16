@@ -62,9 +62,14 @@ function whmcs2billysbilling_hook_ClientAdd($vars)
     //Get organizationId
     $res = $client->request("GET", "/organization");
     if ($res->status !== 200) {
-        echo "postContact 65 : Something went wrong:\n\n";
-        print_r($res->body);
-        exit;
+
+		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
     }
     
     $organizationId = $res->body->organization->id;
@@ -76,9 +81,13 @@ function whmcs2billysbilling_hook_ClientAdd($vars)
     //V2 query on $userid and name, to avoid dublicates, cant post e-mail adresse to BB and always have 1 or 0 results.
     
     if ($res->status !== 200) {
-        echo "postContact 79 : Something went wrong:\n\n";
-        print_r($res->body);
-        //exit;
+	
+		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
     }
     
     $userCount = count($res->body->contacts);
@@ -96,9 +105,14 @@ function whmcs2billysbilling_hook_ClientAdd($vars)
         ));
         
         if ($res->status !== 200) {
-            echo "postContact 99 : Something went wrong:\n\n";
-            print_r($res->body);
-            //exit;
+
+		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
         }
         
         $contactId = $res->body->contacts[0]->id;

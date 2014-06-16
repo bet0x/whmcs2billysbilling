@@ -12,9 +12,14 @@ function billysbilling_hook_getAccountId($accountName)
     $res = $client->request("GET", "/accounts?q=$accountName");
     
     if ($res->status !== 200) {
-        echo "postInvoicePaid 15 : Something went wrong:\n\n";
-        print_r($res->body);
-        exit;
+
+			$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+	
     }
     
     $accountCount = count($res->body->accounts);
@@ -61,9 +66,14 @@ function billysbilling_hook_InvoicePaid($vars)
     //Get organizationId
     $res = $client->request("GET", "/organization");
     if ($res->status !== 200) {
-        echo "postInvoicePaid 64 : Something went wrong:\n\n";
-        print_r($res->body);
-        exit;
+     
+	 		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
     }
     
     $organizationId = $res->body->organization->id;
@@ -73,9 +83,14 @@ function billysbilling_hook_InvoicePaid($vars)
     $res = $client->request("GET", "/invoices?q=".$vars['invoiceid']."");
     
     if ($res->status !== 200) {
-        echo "postInvoicePaid 76 : Something went wrong:\n\n";
-        print_r($res->body);
-        exit;
+     
+	 		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
     }
     
     
@@ -109,7 +124,7 @@ function billysbilling_hook_InvoicePaid($vars)
         'cashAmount' => $results['total'],
         'cashSide' => 'debit',
         'cashAccountId' => billysbilling_hook_getAccountId("whmcs-".$gateway),
-		'cashExchangeRate' => '1', //Set exchangerate to 1 all the time. Can't know what rate is used.
+		//'cashExchangeRate' => '1', //Set exchangerate to 1 all the time. Can't know what rate is used.
         'associations' => $associations
         )
         ));
@@ -118,9 +133,14 @@ function billysbilling_hook_InvoicePaid($vars)
         
         
         if ($res->status !== 200) {
-            echo "postInvoicePaid 117 : Something went wrong:\n\n";
-            print_r($res->body);
-            exit;
+        
+				$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
         }
         
         

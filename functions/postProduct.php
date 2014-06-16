@@ -15,9 +15,14 @@ function whmcs2billysbilling_hook_ProductAdd($vars)
     //Get organizationId
     $res = $client->request("GET", "/organization");
     if ($res->status !== 200) {
-        echo " postProdcut 18 : Something went wrong:\n\n";
-        print_r($res->body);
-        exit;
+    
+			$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
     }
     
     $organizationId = $res->body->organization->id;
@@ -28,9 +33,14 @@ function whmcs2billysbilling_hook_ProductAdd($vars)
     $res = $client->request("GET", "/products?q=$productName");
     
     if ($res->status !== 200) {
-        echo " postProdcut 31 : Something went wrong:\n\n";
-        print_r($res->body);
-        //exit;
+    
+			$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
     }
     
     $count = count($res->body->products);
@@ -50,9 +60,14 @@ function whmcs2billysbilling_hook_ProductAdd($vars)
         ));
         
         if ($res->status !== 200) {
-            echo " postProdcut 53 : Something went wrong:\n\n";
-            print_r($res->body);
-            //exit;
+        		
+				$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
         }
         
         $productId = $res->body->products[0]->id;

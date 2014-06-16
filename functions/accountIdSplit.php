@@ -1,10 +1,11 @@
 <?php
 function accountIdSplit($data) {
+$rawData = explode(" ", $data);
 
-$rawData = explode(" (", $data, 2); 
+$find = array("(",")");
+$replace = array("","");
 
-$data = str_repalce(")", "", $rawData['1']);
-
+$data = str_replace($find, $replace, end($rawData));
 return $data;
 }
 ?>

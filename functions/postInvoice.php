@@ -20,9 +20,14 @@ function billysbilling_hook_InvoiceCreated($vars)
         //Get organizationId
         $res = $client->request("GET", "/organization");
         if ($res->status !== 200) {
-            echo "postInvoice 23 : Something went wrong:\n\n";
-            print_r($res->body);
-            exit;
+
+		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
         }
         
         $organizationId = $res->body->organization->id;
@@ -133,9 +138,14 @@ $defaultSalesTaxRulesetId = accountIdSplit($whmcs2billysbilling_settings['option
             ));
             
             if ($res->status !== 200) {
-                echo "postInvoice 123 : Something went wrong:\n\n";
-                print_r($res->body);
-                exit;
+
+		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+			
             }
             
         }

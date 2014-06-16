@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Whmcs to BillysBilling
 *
@@ -23,7 +24,14 @@ global $whmcs2billysbilling_settings;
 while ($arr = mysql_fetch_array($q)) {
     $whmcs2billysbilling_settings[$arr['setting']] = $arr['value'];
 }
+
+ 
+ 
 require_once(dirname(__FILE__) . "/BillysBilling/v2class.php");
+
+
+
+
 
 function getAccounts($showName = 0)
 {
@@ -39,9 +47,14 @@ function getAccounts($showName = 0)
     $res = $client->request("GET", "/accounts");
     
     if ($res->status !== 200) {
-        echo "Something went wrong:\n\n";
-        print_r($res->body);
-        //exit;
+        
+		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+	
     }
     
     $salesTaxRuleset = "";
@@ -55,7 +68,7 @@ function getAccounts($showName = 0)
         if ($showName == 1) {
             $output .= "".$values->id." = ".$values->name."";
         } else {
-            $output .= "".$values->name." (".$values->id.")"; // $output .= "".$values->id."";
+            $output .= "".str_replace(",", ".", $values->name)." (".$values->id.")"; // $output .= "".$values->id."";
         }
         
         if ($count != $i) {
@@ -82,9 +95,14 @@ function getSalesTaxRuleset($showName = 0)
     $res = $client->request("GET", "/salesTaxRulesets?include=salesTaxRuleset.rules:embed");
     
     if ($res->status !== 200) {
-        echo "Something went wrong:\n\n";
-        print_r($res->body);
-        //exit;
+		
+		$command = "logactivity";
+		$adminuser = $whmcs2billysbilling_settings['option100'];	
+		$values["description"] = time()." : ".__FILE__." ".__LINE__." :  ".varDumpToString($res->body);
+		$results = localAPI($command,$values,$adminuser);
+        echo "Something went wrong, contact site owner. Give site owner incident id: ".time().":\n\n";
+		exit;
+		
     }
     
     $salesTaxRuleset = "";

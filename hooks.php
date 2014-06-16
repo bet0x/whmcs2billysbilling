@@ -17,16 +17,19 @@
 if (!defined("WHMCS"))
     die("This file cannot be accessed directly");
 
-
-
 /* ALL SETTINGS FOR THE SCRIPT */
 $q = @mysql_query("SELECT * FROM tbladdonmodules WHERE module = 'whmcs2billysbilling'"); // 
 global $whmcs2billysbilling_settings;
 while ($arr = mysql_fetch_array($q)) {
     $whmcs2billysbilling_settings[$arr['setting']] = $arr['value'];
 } 
-
-
+function varDumpToString($var)
+{
+    ob_start();
+    var_dump($var);
+    $result = ob_get_clean();
+    return $result;
+}
 
 if (!function_exists("curl_init")) {
     die("Billy needs the CURL PHP extension.");
