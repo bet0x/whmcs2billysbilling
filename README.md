@@ -36,9 +36,6 @@ Changelog:
 * Went from dev version to stable release.
 
 
-Todo:
-* Further testing
-
 What this does:
 * Saves new clients in BillysBilling when created in WHMCS.
 * Converts country codes from WHMCS to BillysBilling country codes for clients / invoices.
