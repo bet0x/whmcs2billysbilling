@@ -56,9 +56,12 @@ This is a list of known bugs.
 How to install and use:
 *** ALWAYS BACKUP FILES AND DATABASE BEFORE INSTALLING ANYTHING ***
 1) Download the files. 
+
 2) Create the directory "whmcs2billysbilling" in: WHMCS-DIR/modules/addons/
+
 3) Upload the files to your WHMCS installation in following directory: WHMCS-DIR/modules/addons/whmcs2billysbilling/
 4) Login as Admin in WHMCS
+
 5) Goto: Setup -> Addon Modules (/admin/configaddonmods.php)
 
 ** NOTE **  
