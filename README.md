@@ -24,7 +24,7 @@ whmcs2billysbilling, then create it.
 4. Login as administrator / admin in WHMCS backend 
 5. Goto Setup ­> Addon Modules /admin/configaddonmods.php 
 
-### NOTES
+NOTES
 You might get errors just by uploading the files, it is highly importnat to 
 configure the addon when the files have been uploaded. 
 
@@ -41,7 +41,7 @@ username”. Now save the config and the open “Configure” again.
 10. Now you just need 4 more fields to setup. Looks at the image below to 
 see a setup. 
 
-###EXTRA
+EXTRA
 If you get payments tru Paypal and do not want them to be sent to your 
 “bank” account in billysBilling when an invoice is paid, then you will have to 
 setup an account in billysbilling with the name “whmcs­paypal” in the 
