@@ -71,7 +71,7 @@ too. In case of error, check the whmcs activity log ( you can find it here:
 
 
 
-Changelog:
+#Changelog
 ** 1.0.2 **
 * Fixed bug with accounts not displaying correctly when a comma is present in name.
 * Changes the function accountIdSplit() to avoid errors if users have ( in account names.
