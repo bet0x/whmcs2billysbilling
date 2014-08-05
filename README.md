@@ -1,4 +1,4 @@
-whmcs2billysbilling
+#whmcs2billysbilling
 ===================
 
 
@@ -36,7 +36,7 @@ Changelog:
 * Went from dev version to stable release.
 
 
-What this does:
+##What this does:
 * Saves new clients in BillysBilling when created in WHMCS.
 * Converts country codes from WHMCS to BillysBilling country codes for clients / invoices.
 * Transfers invoices from WHMCS to BillysBilling.
@@ -44,13 +44,13 @@ What this does:
 * Updating invoice to "Paid" when WHMCS status changes.
 
 
-** BUGS **
+##BUGS **
 This is a list of known bugs.
 * Some users have problems with the invoice using wrong product names. Unknown reason. 
 
 Please read the pdf readme file before installing.
 
-** EXTRA : HIGHLY IMPORTANT **
+## EXTRA : HIGHLY IMPORTANT **
 
 When a payment come from exmaple Paypal, you maybe not want it to send the money to the "Default payment account id" in BillysBilling, to prevent this. Create a bank account in BillysBilling with the exact same name WHMCS uses. 
 Most of the time Paypal uses the name "Paypal" in WHMCS and you should call the bank account "Paypal" in billysBilling. If you call it the same, "Whmcs to BillysBilling" will find the account and use it instead of the "Default payment account id".
